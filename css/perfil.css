@@ -1,0 +1,332 @@
+/* ==========================================================================
+   1. VARIÁVEIS E RESETS
+   ========================================================================== */
+:root {
+  --primary: #05a933;
+  --primary-dark: #1e3a1e;
+  --bg: #f4f6f9;
+  --card-bg: white;
+  --text-color: #333;
+  --border-color: #ddd;
+  --sub-text: #666;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-color);
+  padding-bottom: 30px;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ==========================================================================
+   2. SUPORTE AO MODO ESCURO (.dark)
+   ========================================================================== */
+.dark {
+  --bg: #1e1e1e;
+  --card-bg: #2b2b2b;
+  --text-color: white;
+  --border-color: #444;
+  --sub-text: #aaa;
+}
+.dark .navbar { background: #111 !important; }
+.dark input { background: #3a3a3a; color: white; border-color: #555; }
+.dark .avatar-placeholder { background: #444; }
+.dark .btn-voltar, .dark .float-btn { background: #444; }
+
+/* ==========================================================================
+   3. NAVBAR
+   ========================================================================== */
+.navbar {
+  background: var(--primary-dark);
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-header h1 {
+  font-size: 1.2rem;
+}
+
+.btn-voltar {
+  background: #345e34;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.float-btn.theme {
+  background: #345e34;
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   4. CONTAINER E CARDS (Mobile First)
+   ========================================================================== */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+  transition: background 0.3s;
+}
+
+/* Área do Avatar */
+.avatar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.avatar-placeholder {
+  width: 90px;
+  height: 90px;
+  background: #e1e4e8;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: var(--sub-text);
+  margin-bottom: 10px;
+}
+
+.user-email {
+  color: var(--sub-text);
+  font-size: 0.9rem;
+  margin-top: 2px;
+}
+
+.divisor {
+  border: 0;
+  border-top: 1px solid var(--border-color);
+  margin: 15px 0;
+}
+
+/* Estatísticas rápida */
+.user-stats {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--sub-text);
+}
+
+/* Formulário de Edição */
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  font-size: 15px;
+}
+
+#saveBtn {
+  width: 100%;
+  padding: 12px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Histórico de Denúncias */
+.card-historico h3 {
+  margin-bottom: 15px;
+}
+
+.historico-list {
+  list-style: none;
+}
+
+.historico-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.historico-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.historico-data {
+  font-size: 0.8rem;
+  color: var(--sub-text);
+}
+
+.badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* Cores dos Badges de Status */
+.status-pendente .badge { background: #ffeeba; color: #856404; }
+.status-resolvido .badge { background: #d4edda; color: #155724; }
+.status-analise .badge { background: #cce5ff; color: #004085; }
+@media (min-width: 768px) {
+  .navbar {
+    padding: 15px 30px;
+  }
+
+  .nav-header h1 {
+    font-size: 1.5rem;
+  }
+
+  /* Distribui as duas seções lado a lado no PC */
+  .container {
+    padding: 30px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Dados na esquerda mais fina, histórico na direita mais larga */
+    gap: 25px;
+    align-items: start;
+  }
+}
+/* ==========================================================================
+   Ajuste da Barra de Navegação Inferior (Mobile App Style)
+   ========================================================================== */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: white !important;
+  display: flex !important; /* Força o alinhamento em linha */
+  flex-direction: row !important;
+  justify-content: space-around !important; /* Distribui os ícones igualmente */
+  align-items: center !important;
+  border-top: 1px solid #dee2e6;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  z-index: 1050;
+  padding: 0 10px;
+}
+
+/* Garante que os links/ícones fiquem centralizados e sem a cor roxa padrão */
+.bottom-nav .nav-item {
+  color: #6c757d !important; /* Cor cinza padrão */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  height: 100%;
+  flex: 1; /* Faz cada item ocupar o mesmo espaço horizontal */
+}
+
+/* Cor do ícone ativo (Home por exemplo) */
+.bottom-nav .nav-item.active {
+  color: #05a933 !important; /* Verde do seu sistema */
+}
+
+/* Força os ícones SVG e Bootstrap Icons a terem um tamanho controlado */
+.bottom-nav .nav-item svg {
+  width: 24px;
+  height: 24px;
+}
+
+.bottom-nav .nav-item i {
+  font-size: 1.5rem !important;
+  line-height: 1;
+}
+
+/* Ajuste do círculo com a inicial do usuário */
+.bottom-nav .user-avatar-circle {
+  width: 34px;
+  height: 34px;
+  background-color: #05a933;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+/* Esconder a barra no Computador (Web Desktop) */
+@media (min-width: 768px) {
+  .bottom-nav {
+    display: none !important;
+  }
+}
+.dark {
+  --bg: #1e1e1e;
+  --card-bg: #2b2b2b;
+  --text-color: white;
+}
+.dark .navbar {
+  background: #111 !important;
+}
+.dark .btn-voltar, 
+.dark .float-btn {
+  background: #444;
+}
+.dark #reportList li {
+  border-bottom-color: #444;
+}

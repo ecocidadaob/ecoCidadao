@@ -1,0 +1,41 @@
+/* ==========================================================================
+   CSS Customizado: Dicas Ambientais (Eco Cidadão)
+   ========================================================================== */
+
+/* Mantém o fundo sutil do app */
+body {
+    background-color: #eef5ef !important;
+}
+
+/* Efeito de elevação suave ao passar o mouse (apenas no PC) */
+@media (min-width: 768px) {
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15) !important;
+    }
+}
+
+/* Garante que os emojis fiquem sempre centralizados dentro da bolinha do Bootstrap */
+.icone {
+    flex-shrink: 0; /* Impede o emoji de esmagar se o texto do card for muito grande */
+    user-select: none; /* Impede o usuário de selecionar o emoji como texto sem querer */
+}
+.dark {
+  --bg: #1e1e1e;
+  --card-bg: #2b2b2b;
+  --text-color: white;
+}
+.dark .navbar {
+  background: #111 !important;
+}
+.dark .btn-voltar, 
+.dark .float-btn {
+  background: #444;
+}
+.dark #reportList li {
+  border-bottom-color: #444;
+}

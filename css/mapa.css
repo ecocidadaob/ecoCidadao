@@ -1,0 +1,337 @@
+/* ==========================================================================
+   1. VARIÁVEIS, RESETS E FONTES
+   ========================================================================== */
+:root {
+  --primary: #05a933;
+  --primary-dark: #1e3a1e;
+  --bg: #f4f6f9;
+  --card-bg: white;
+  --text-color: #333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-color);
+  padding-bottom: 30px;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ==========================================================================
+   2. SUPORTE AO MODO ESCURO (.dark)
+   ========================================================================== */
+.dark {
+  --bg: #1e1e1e;
+  --card-bg: #2b2b2b;
+  --text-color: white;
+}
+.dark .navbar {
+  background: #111 !important;
+}
+.dark .btn-voltar, 
+.dark .float-btn {
+  background: #444;
+}
+.dark #reportList li {
+  border-bottom-color: #444;
+}
+
+/* ==========================================================================
+   3. NAVBAR & CONTROLES (Mobile First - Padrão Celular)
+   ========================================================================== */
+.navbar {
+  background: var(--primary-dark);
+  color: white;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nav-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-header h1 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.btn-voltar {
+  background: #345e34;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.nav-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+#pesquisa {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  background: white;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* Botões de localização e tema adaptados para fluxo no mobile */
+.float-btn {
+  background: #345e34;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  flex: 1; /* Divide o espaço igualmente no mobile */
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* ==========================================================================
+   4. LAYOUT CONTAINER & CARDS (Mobile First)
+   ========================================================================== */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 15px;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+  transition: background 0.3s;
+}
+
+#map {
+  height: 280px;
+  width: 100%;
+  border-radius: 12px;
+  z-index: 1;
+}
+
+/* Elementos de Formulário */
+label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+select, button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+select {
+  border: 1px solid #ccc;
+  background: white;
+}
+
+#sendBtn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Lista de Denúncias */
+#reportList {
+  list-style: none;
+  margin-top: 10px;
+  word-break: break-word;
+}
+
+#reportList li {
+  cursor: pointer;
+  padding: 10px 6px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Marcadores customizados do Leaflet */
+.custom-marker {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 10px rgba(0,0,0,.4);
+}
+
+/* ==========================================================================
+   5. ANIMAÇÕES
+   ========================================================================== */
+.pulse {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(5,169,51,.6); }
+  70% { transform: scale(1.2); box-shadow: 0 0 0 15px rgba(5,169,51,0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(5,169,51,0); }
+}
+
+/* ==========================================================================
+   6. TELAS GRANDES / DESKTOP (A partir de 768px)
+   ========================================================================== */
+@media (min-width: 768px) {
+  
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+  }
+
+  .nav-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .nav-controls {
+    flex-direction: row;
+    width: auto;
+    align-items: center;
+    gap: 15px;
+  }
+
+  #pesquisa {
+    width: 280px;
+  }
+
+  /* No Desktop, os botões voltam a ser flutuantes fixos na tela se desejar, 
+     ou mantêm-se alinhados na barra. Para fins de usabilidade moderna,
+     eles ficam fixos na lateral direita igual ao seu escopo original */
+  .nav-buttons {
+    display: contents; /* Desfaz o container flex para aplicar o fixed individual */
+  }
+
+  .float-btn {
+    position: fixed;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%; /* Fica redondo no desktop */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    box-shadow: 0 6px 15px rgba(0,0,0,.25);
+  }
+
+  .float-btn.theme { top: 20px; }
+  .float-btn.loc { top: 75px; }
+
+  /* Grid de duas colunas para aproveitar o espaço da tela do PC */
+  .container {
+    padding: 30px 20px;
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    gap: 20px;
+  }
+
+  .card-mapa {
+    grid-row: span 2; /* Faz o mapa ocupar o lado esquerdo de cima a baixo */
+  }
+
+  #map {
+    height: 500px; /* Mapa ganha área no Desktop */
+  }
+}
+/* ==========================================================================
+   Ajuste da Barra de Navegação Inferior (Mobile App Style)
+   ========================================================================== */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: white !important;
+  display: flex !important; /* Força o alinhamento em linha */
+  flex-direction: row !important;
+  justify-content: space-around !important; /* Distribui os ícones igualmente */
+  align-items: center !important;
+  border-top: 1px solid #dee2e6;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  z-index: 1050;
+  padding: 0 10px;
+}
+
+/* Garante que os links/ícones fiquem centralizados e sem a cor roxa padrão */
+.bottom-nav .nav-item {
+  color: #6c757d !important; /* Cor cinza padrão */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  height: 100%;
+  flex: 1; /* Faz cada item ocupar o mesmo espaço horizontal */
+}
+
+/* Cor do ícone ativo (Home por exemplo) */
+.bottom-nav .nav-item.active {
+  color: #05a933 !important; /* Verde do seu sistema */
+}
+
+/* Força os ícones SVG e Bootstrap Icons a terem um tamanho controlado */
+.bottom-nav .nav-item svg {
+  width: 24px;
+  height: 24px;
+}
+
+.bottom-nav .nav-item i {
+  font-size: 1.5rem !important;
+  line-height: 1;
+}
+
+/* Ajuste do círculo com a inicial do usuário */
+.bottom-nav .user-avatar-circle {
+  width: 34px;
+  height: 34px;
+  background-color: #05a933;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+/* Esconder a barra no Computador (Web Desktop) */
+@media (min-width: 768px) {
+  .bottom-nav {
+    display: none !important;
+  }
+}

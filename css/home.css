@@ -1,0 +1,178 @@
+.body {
+    background-color: #f3eded;
+}
+
+/* .imagem-centralizada {
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+}
+    /* Defina a largura desejada para a imagem */
+
+.div {
+    background: #004906;
+/* Procure a classe que controla o topo (ex: .header, .navbar ou o nome que você deu) */
+    width: 100%;
+    max-width: 100%; /* Garante que ele use toda a largura disponível */
+    border-radius: 0 0 20px 20px; /* Opcional: arredonda apenas os cantos de baixo se quiser um visual moderno */
+}
+
+.homeA {
+    width: 85%;
+    max-width: 20px; /* Altere este valor para controlar a largura máxima */
+    margin: 0 auto;   /* Centraliza o card dentro da coluna */
+    background: #d11818;
+    border-radius:40px;
+    padding: 20px;
+}
+
+.home {
+    width: 85%;
+    max-width: 20px; /* Mesma largura para alinhar ambos */
+    margin: 0 auto;   /* Centraliza o card dentro da coluna */
+    background: #009026;
+    border-radius: 30px;
+    padding: 20px;
+}
+
+
+.logo-icone {
+    width: 60px;
+    /* Define a largura do ícone */
+    height: 60px;
+    /* Define a altura do ícone */
+    object-fit: contain;
+    /* Garante que a folha não distorça */
+    background-color: #ffffff;
+    /* Fundo branco idêntico à imagem 2 */
+    border-radius: 15px;
+    /* Bordas arredondadas do ícone */
+    padding: 8px;
+    /* Espaço interno para a folha não tocar na borda branca */
+}
+.recuperar-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cardd{width: 70px; 
+    height: 70px; 
+    background-color: #4cb050; 
+    font-size: 1.6rem;
+}
+.circulo {
+  width: 80px; /* Largura do círculo */
+  height: 80px; /* Altura do círculo (deve ser igual à largura) */
+  background-color: #7cd396; /* Cor de fundo */
+  border-radius: 50%; /* Propriedade que cria o círculo */
+}
+.bottom-nav {
+  position: fixed;   /* ← isso é o essencial */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  height: 60px;
+  z-index: 999;
+}
+
+/* Evita que o conteúdo fique escondido atrás da navbar */
+body {
+  padding-bottom: 70px;
+}
+.homeA, .home {
+  width: 100%;        /* ← troca o 750px por isso */
+  max-width: 100%;
+  /* resto mantém igual */
+}
+.nav-item {
+  text-decoration: none;
+  color: #888;
+  /* restante do CSS que passei antes */
+}
+/* ==========================================================================
+   Ajuste da Barra de Navegação Inferior (Mobile App Style)
+   ========================================================================== */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: white !important;
+  display: flex !important; /* Força o alinhamento em linha */
+  flex-direction: row !important;
+  justify-content: space-around !important; /* Distribui os ícones igualmente */
+  align-items: center !important;
+  border-top: 1px solid #dee2e6;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  z-index: 1050;
+  padding: 0 10px;
+}
+
+/* Garante que os links/ícones fiquem centralizados e sem a cor roxa padrão */
+.bottom-nav .nav-item {
+  color: #6c757d !important; /* Cor cinza padrão */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  height: 100%;
+  flex: 1; /* Faz cada item ocupar o mesmo espaço horizontal */
+}
+
+/* Cor do ícone ativo (Home por exemplo) */
+.bottom-nav .nav-item.active {
+  color: #05a933 !important; /* Verde do seu sistema */
+}
+
+/* Força os ícones SVG e Bootstrap Icons a terem um tamanho controlado */
+.bottom-nav .nav-item svg {
+  width: 24px;
+  height: 24px;
+}
+
+.bottom-nav .nav-item i {
+  font-size: 1.5rem !important;
+  line-height: 1;
+}
+
+/* Ajuste do círculo com a inicial do usuário */
+.bottom-nav .user-avatar-circle {
+  width: 34px;
+  height: 34px;
+  background-color: #05a933;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+/* Esconder a barra no Computador (Web Desktop) */
+@media (min-width: 768px) {
+  .bottom-nav {
+    display: none !important;
+  }
+}
+.dark {
+  --bg: #1e1e1e;
+  --card-bg: #2b2b2b;
+  --text-color: white;
+}
+.dark .navbar {
+  background: #111 !important;
+}
+.dark .btn-voltar, 
+.dark .float-btn {
+  background: #444;
+}
+.dark #reportList li {
+  border-bottom-color: #444;
+}
